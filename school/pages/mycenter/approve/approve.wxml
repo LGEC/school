@@ -1,0 +1,25 @@
+<!--pages/mycenter/approve/approve.wxml-->
+<view class='section1' wx:if="{{!status}}">
+  <view class='info1'>温馨提示！！</view>
+  <view class='info2'>请你选择以下两种身份之一进行认证，谢谢合作！</view>
+  <navigator url='../teacher/teacher'>
+    <image class='info3' src='/image/approve1.png'></image>
+  </navigator>
+  <navigator url='../real_name/real_name'>
+    <image class='info4' src='/image/approve2.png'></image>
+  </navigator>
+</view>
+<navigator url='../real_name/real_name' class='section2' wx:if="{{status && datas.type == 1}}">
+  <image class='info5' src='/image/approve2.png'></image>
+  <view class='info6'>你好，{{datas.trueName}}</view>
+  <view class='info7'>
+    身份证号：{{datas.IdCode}}
+  </view>
+</navigator>
+<navigator url='../teacher/teacher' class='section2' wx:if="{{status && datas.type == 2}}">
+  <image class='info5' src='/image/approve1.png'></image>
+  <view class='info6'>你好，{{datas.trueName}}</view>
+  <view class='info7'>
+    教师工号：{{datas.IdCode}}
+  </view>
+</navigator>
